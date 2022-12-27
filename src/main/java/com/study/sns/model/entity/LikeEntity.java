@@ -1,6 +1,5 @@
 package com.study.sns.model.entity;
 
-import com.study.sns.model.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
@@ -10,25 +9,23 @@ import java.sql.Timestamp;
 import java.time.Instant;
 
 @Entity
-@Table(name = "\"user\"")
+@Table(name = "\"like\"")
 @Getter
 @Setter
 //@SQLDelete(sql = "UPDATE \"user\" SET deleted_at = NOW() where id=?")
 @Where(clause = "deleted_at is NULL")
-public class UserEntity {
+public class LikeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "userName")
-    private String userName;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    private UserRole role = UserRole.USER;
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private PostEntity post;
 
     @Column(name = "register_at")
     private Timestamp registerAt;
@@ -49,11 +46,10 @@ public class UserEntity {
         this.updatedAt = Timestamp.from(Instant.now());
     }
 
-    public static UserEntity of(String userName, String password) {
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUserName(userName);
-        userEntity.setPassword(password);
-        return userEntity;
+    public static LikeEntity of(UserEntity userEntity,PostEntity postEntity) {
+        LikeEntity likeEntity = new LikeEntity();
+        likeEntity.setUser(userEntity);
+        likeEntity.setPost(postEntity);
+        return likeEntity;
     }
-
 }

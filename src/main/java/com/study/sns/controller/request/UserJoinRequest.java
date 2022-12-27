@@ -1,4 +1,4 @@
-package com.study.sns.controller;
+package com.study.sns.controller.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,6 +7,6 @@ import lombok.Getter;
 @Getter
 public class UserJoinRequest {
 
-    private String userName;
+    private String name;
     private String password;
 }

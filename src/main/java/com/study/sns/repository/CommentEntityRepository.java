@@ -1,12 +1,11 @@
 package com.study.sns.repository;
 
+import com.study.sns.model.entity.CommentEntity;
 import com.study.sns.model.entity.PostEntity;
-import com.study.sns.model.entity.UserEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface PostEntityRepository extends JpaRepository<PostEntity, Integer> {
-
-    Page<PostEntity> findAllByUser(UserEntity entity, Pageable pageable);
+public interface CommentEntityRepository extends JpaRepository<CommentEntity, Integer> {
+    Page<CommentEntity> findAllByPost(PostEntity post, Pageable pageable);
 }

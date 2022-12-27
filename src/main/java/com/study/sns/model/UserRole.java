@@ -1,2 +1,6 @@
-package com.study.sns.model;public enum UserRole {
+package com.study.sns.model;
+
+public enum UserRole {
+    ADMIN,
+    USER
 }
