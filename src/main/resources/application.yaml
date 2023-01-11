@@ -10,14 +10,16 @@ spring:
         show_sql: true
 
   datasource:
-    url: jdbc:postgresql://ec2-44-194-92-192.compute-1.amazonaws.com/d2m287frcrs9ns
-    username: urawnocrqptbcq
+    url: jdbc:postgresql://ec2-3-228-235-79.compute-1.amazonaws.com/d32gnqu35b3pji
+    username: zziqcgxsgbruni
     platform: postgres
     driver-class-name: org.postgresql.Driver
-    password: ca50348539a4376d64657397d69de9091a27f7a5919c5bac7b3e884191dc1ae0
+    password: 0d26d90c3d8eb118635c5e9a512d959566d7143552e1127502bdbeea6c942018
     hikari:
       maximum-pool-size: 4
 jwt:
   secret-key: YangSeuljin.sns-application-2022_secret_key
   #30days
   token.expired-time-ms: 2592000000
+
+spring.redis.url: redis://:p57322b2be725feefa0bef0d89863bfac632a7db9f234d716f00bc69dc6a843de@ec2-34-203-50-42.compute-1.amazonaws.com:11009

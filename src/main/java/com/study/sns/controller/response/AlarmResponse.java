@@ -4,9 +4,11 @@ import com.study.sns.model.Alarm;
 import com.study.sns.model.AlarmArgs;
 import com.study.sns.model.AlarmType;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.sql.Timestamp;
 
+@Data
 @AllArgsConstructor
 public class AlarmResponse {
     private Integer id;
